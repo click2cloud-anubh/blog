@@ -1,3 +1,43 @@
 .heading {
     color:blue;
 }
+
+  section {
+    display: table;
+  }
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+    color: rgb(255, 0, 76);
+    background-color: rgb(42, 243, 176);
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+    color: rgb(12, 209, 29);
+    background-color: rgb(0, 162, 255);
+  }
+  
+  .example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    color: rgb(107, 26, 182);
+    background-color: rgb(240, 224, 78);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    color: blue;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
