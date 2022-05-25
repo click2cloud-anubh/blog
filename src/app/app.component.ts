@@ -1,4 +1,4 @@
-import { ThisReceiver } from '@angular/compiler';
+import { isNgTemplate, ThisReceiver } from '@angular/compiler';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,25 +8,19 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'Send data Patent to Child and Reusable Component and data Child to Patent and 2-Way binding';
-  data= 20;
-  str= "Square";
+  title = 'Template Reference Variable & Basic Pipes';
+  today= Date();
 
-  userDetails= [
-    {name: "Anubh", email:'anubh@gmail.com'},
-    {name: "Shanu", email:'shanu@gmail.com'},
-    {name: "Raja", email:'raja@gmail.com'},
-    {name: "Sonu", email:'sonu@gmail.com'},
-  ]
-
-  name: any;
-
-  updateChild() {
-    this.data= Math.floor(Math.random()*10);
+  user= {
+    name:'Anubh',
+    age: 21
   }
 
-  updateData(item: string) {
+  getVal(item: HTMLInputElement){
     console.warn(item);
-    this.str= item;
+  }
+
+  capString(item: string) {
+    return item.toUpperCase();
   }
 }

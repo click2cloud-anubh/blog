@@ -1,25 +1,43 @@
 <app-header></app-header>
 
-<h2>Anubh's Angular {{title}}</h2>
-
-<app-child [item]="data" [item2]="str"></app-child>
-
-<button (click)="updateChild()">Update Child Component</button>
-
-<hr>
-<h2>Passing Data Parent to Child</h2>
-<ul *ngFor="let user of userDetails">
-   <app-user-details [item]="user"></app-user-details>
-</ul>
-
-<hr>
-<h2>Passing Data Child to Parent</h2>
-<h2>Input given str- {{str}}</h2>
-<app-child2 (updateDataEvent)="updateData($event)"></app-child2>
+<h3>Anubh's Angular {{title}}</h3>
 
 <hr>
 
-<h2>2-Way Binding</h2>
-<input type="text" [(ngModel)]="name">
+<h3>Template Reference Variable</h3>
+<input type="text" #box name="user" placeholder="Enter user name">
+<button (click)="getVal(box)"> Call Function </button>
 
-<h3>{{name}}</h3>
+<hr>
+<h3>Basic Pipes</h3>
+<h4>{{title | uppercase}} </h4>    //By Pipes
+<h4>{{ capString(title) }} </h4>   //By function
+
+
+<h4>{{title | lowercase}} </h4>
+
+<h3>{{today | date}}</h3>
+<h3>{{today | date : 'fullDate'}}</h3>
+
+
+<hr>
+<h3>Advanced Pipes</h3>
+<h4>{{title | slice: 5}} </h4>
+<h4>{{title | slice: 5 : 10}} </h4>
+<h4>{{title | slice: 5 : 10 | uppercase}} </h4> 
+
+<h3>{{user | json}}</h3>
+<h3>{{user | json | uppercase}}</h3>
+
+<h4>{{0000005060.7012 | number : '2.2-3'}}</h4>
+<h4>{{5060.7012 | number : '2.2-3'}}</h4>
+<h4>{{4.89 | number : '3.2-3'}}</h4>
+
+<h3>{{20 | currency: 'USD'}}</h3>
+<h3>{{20 | currency: 'INR'}}</h3>
+<h3>{{20 | currency: 'GBP'}}</h3>
+
+
+<hr>
+<h3>Custom Pipes</h3>
+<h4>{{20 | usdInr: 72}}</h4>
