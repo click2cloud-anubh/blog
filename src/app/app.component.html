@@ -2,215 +2,24 @@
 
 <h2>Anubh's Angular {{title}}</h2>
 
+<app-child [item]="data" [item2]="str"></app-child>
+
+<button (click)="updateChild()">Update Child Component</button>
+
 <hr>
-
-<h2>Forms</h2>
-
-<form #basicForm="ngForm" (ngSubmit)="getData(basicForm.value)">
-   <input type="text" ngModel name="username" placeholder="Enter user-name" >
-   <br><br>
-   <input type="text" ngModel name="useremail" placeholder="Enter user-email" >
-   <br><br>
-   <input type="text" ngModel name="password" placeholder="Enter user-password" >
-   <br><br>
-   <button>Register</button>
-</form>
-
-<ul>
-   <li>{{userData.username}}</li>
-   <li>{{userData.useremail}}</li>
-   <li>{{userData.password}}</li>
+<h2>Passing Data Parent to Child</h2>
+<ul *ngFor="let user of userDetails">
+   <app-user-details [item]="user"></app-user-details>
 </ul>
 
 <hr>
-
-<h2>Toggle Elements</h2>
-
-<button (click)="toggle()"> Toggle it </button>
-<h3 *ngIf="display" style="color: green;"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis eaque impedit unde nulla tenetur qui similique, quidem facilis recusandae ratione!
-
-<ul>
-   <li class="container mx-2">Option-1</li>
-   <li class="container mx-2">Option-2</li>
-   <li class="container mx-2">Option-3</li>
-</ul></h3>
-
-<p style="color: red">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis aut nam, assumenda impedit, deserunt tempora pariatur dolorum quam amet rem minima rerum adipisci voluptate ipsum magnam error ad ipsam doloribus, ab modi veniam illum! Iste numquam dolore corrupti repellendus aperiam!</p>
+<h2>Passing Data Child to Parent</h2>
+<h2>Input given str- {{str}}</h2>
+<app-child2 (updateDataEvent)="updateData($event)"></app-child2>
 
 <hr>
 
-<h2>Bootstrap- Alert</h2>
-<div class="alert alert-danger" role="alert">
-   A simple danger alert—check it out!
- </div>
+<h2>2-Way Binding</h2>
+<input type="text" [(ngModel)]="name">
 
- <h2>Bootstrap- Accordion</h2>
- <div class="accordion" id="accordionExample">
-   <div class="accordion-item">
-     <h2 class="accordion-header" id="headingOne">
-       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-         Accordion Item #1
-       </button>
-     </h2>
-     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-       <div class="accordion-body">
-         <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-       </div>
-     </div>
-   </div>
-   <div class="accordion-item">
-     <h2 class="accordion-header" id="headingTwo">
-       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-         Accordion Item #2
-       </button>
-     </h2>
-     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-       <div class="accordion-body">
-         <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-       </div>
-     </div>
-   </div>
-   <div class="accordion-item">
-     <h2 class="accordion-header" id="headingThree">
-       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-         Accordion Item #3
-       </button>
-     </h2>
-     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-       <div class="accordion-body">
-         <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-       </div>
-     </div>
-   </div>
- </div>
- 
- <hr><hr>
-
- <h3>Angular Material UI</h3>
-
- <section>
-   <div class="example-label">Basic</div>
-   <div class="example-button-row">
-     <button mat-button>Basic</button>
-     <button mat-button color="primary">Primary</button>
-     <button mat-button color="accent">Accent</button>
-     <button mat-button color="warn">Warn</button>
-     <button mat-button disabled>Disabled</button>
-     <a mat-button href="https://www.google.com/" target="_blank">Link</a>
-   </div>
- </section>
- <mat-divider></mat-divider>
- <section>
-   <div class="example-label">Raised</div>
-   <div class="example-button-row">
-     <button mat-raised-button>Basic</button>
-     <button mat-raised-button color="primary">Primary</button>
-     <button mat-raised-button color="accent">Accent</button>
-     <button mat-raised-button color="warn">Warn</button>
-     <button mat-raised-button disabled>Disabled</button>
-     <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
-   </div>
- </section>
- <mat-divider></mat-divider>
- <section>
-   <div class="example-label">Stroked</div>
-   <div class="example-button-row">
-     <button mat-stroked-button>Basic</button>
-     <button mat-stroked-button color="primary">Primary</button>
-     <button mat-stroked-button color="accent">Accent</button>
-     <button mat-stroked-button color="warn">Warn</button>
-     <button mat-stroked-button disabled>Disabled</button>
-     <a mat-stroked-button href="https://www.google.com/" target="_blank">Link</a>
-   </div>
- </section>
- <mat-divider></mat-divider>
- <section>
-   <div class="example-label">Flat</div>
-   <div class="example-button-row">
-     <button mat-flat-button>Basic</button>
-     <button mat-flat-button color="primary">Primary</button>
-     <button mat-flat-button color="accent">Accent</button>
-     <button mat-flat-button color="warn">Warn</button>
-     <button mat-flat-button disabled>Disabled</button>
-     <a mat-flat-button href="https://www.google.com/" target="_blank">Link</a>
-   </div>
- </section>
- <mat-divider></mat-divider>
- <section>
-   <div class="example-label">Icon</div>
-   <div class="example-button-row">
-     <div class="example-flex-container">
-       <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-         <mat-icon>more_vert</mat-icon>
-       </button>
-       <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
-         <mat-icon>home</mat-icon>
-       </button>
-       <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
-         <mat-icon>menu</mat-icon>
-       </button>
-       <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
-         <mat-icon>favorite</mat-icon>
-       </button>
-       <button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
-         <mat-icon>open_in_new</mat-icon>
-       </button>
-     </div>
-   </div>
- </section>
- <mat-divider></mat-divider>
- <section>
-   <div class="example-label">FAB</div>
-   <div class="example-button-row">
-     <div class="example-flex-container">
-       <div class="example-button-container">
-         <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
-           <mat-icon>delete</mat-icon>
-         </button>
-       </div>
-       <div class="example-button-container">
-         <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
-           <mat-icon>bookmark</mat-icon>
-         </button>
-       </div>
-       <div class="example-button-container">
-         <button mat-fab color="warn" aria-label="Example icon button with a home icon">
-           <mat-icon>home</mat-icon>
-         </button>
-       </div>
-       <div class="example-button-container">
-         <button mat-fab disabled aria-label="Example icon button with a heart icon">
-           <mat-icon>favorite</mat-icon>
-         </button>
-       </div>
-     </div>
-   </div>
- </section>
- <mat-divider></mat-divider>
- <section>
-   <div class="example-label">Mini FAB</div>
-   <div class="example-button-row">
-     <div class="example-flex-container">
-       <div class="example-button-container">
-         <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
-           <mat-icon>menu</mat-icon>
-         </button>
-       </div>
-       <div class="example-button-container">
-         <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
-           <mat-icon>plus_one</mat-icon>
-         </button>
-       </div>
-       <div class="example-button-container">
-         <button mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
-           <mat-icon>filter_list</mat-icon>
-         </button>
-       </div>
-       <div class="example-button-container">
-         <button mat-mini-fab disabled aria-label="Example icon button with a home icon">
-           <mat-icon>home</mat-icon>
-         </button>
-       </div>
-     </div>
-   </div>
- </section>
+<h3>{{name}}</h3>

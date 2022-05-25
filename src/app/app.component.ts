@@ -1,5 +1,5 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +8,25 @@ import { NgForm } from '@angular/forms';
 })
 
 export class AppComponent {
-  title = 'Loops, Style-Binding';
-  userData: any = {};
+  title = 'Send data Patent to Child and Reusable Component and data Child to Patent and 2-Way binding';
+  data= 20;
+  str= "Square";
 
-  display: boolean = false;
+  userDetails= [
+    {name: "Anubh", email:'anubh@gmail.com'},
+    {name: "Shanu", email:'shanu@gmail.com'},
+    {name: "Raja", email:'raja@gmail.com'},
+    {name: "Sonu", email:'sonu@gmail.com'},
+  ]
 
+  name: any;
 
-  getData(data: NgForm) { 
-    console.warn(data);
-    this.userData = data;
+  updateChild() {
+    this.data= Math.floor(Math.random()*10);
   }
 
-  toggle() {
-    this.display= !this.display;
+  updateData(item: string) {
+    console.warn(item);
+    this.str= item;
   }
 }

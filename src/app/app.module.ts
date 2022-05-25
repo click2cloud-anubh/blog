@@ -7,27 +7,23 @@ import { HeaderComponent } from './header/header.component';
 import {FormsModule} from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatButtonModule} from '@angular/material/button';
-import {MatBadgeModule} from '@angular/material/badge';
+import { ChildComponent } from './child/child.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { Child2Component } from './child2/child2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    ChildComponent,
+    UserDetailsComponent,
+    Child2Component,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     NgbModule,
-    BrowserAnimationsModule,
-    MatSliderModule,
-    MatIconModule,
-    MatDividerModule,
-    MatButtonModule,
-    MatBadgeModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
