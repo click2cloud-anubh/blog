@@ -1,51 +1,29 @@
 <h2 class="{{title}}">Anubh's Angular {{title}}</h2>
 
-<input type="text"
- name="Name"
- value="{{name}}"
- disabled="{{disabled}}">
-<br><br>
-<input type="text"
- name="Name" 
- [value]=name
- [disabled]=disabled>
+<h2>For-Loop</h2>
 
- <hr>
+<h3 *ngFor="let item of users">Name is- {{item}}</h3>
 
- <!--  <h3 *ngIf="show; else elseBlock">
-    Code it again and again.
- </h3> 
+<h3 *ngFor="let detail of userDetails">Name is- {{detail.name}},  Email is- {{detail.email}}, Phone number is- {{detail.phone}}</h3>
 
- <ng-template #elseBlock> 
-    <h3 style="color:blue">Else condition executes</h3>
- </ng-template> -->
+<hr>
 
- <h3 *ngIf="show==='yes'; then ifBlock else elseBlock"></h3>
+<h2>Nested Loops</h2>
 
- <ng-template #ifBlock>
-   <h3>This is IF-condition.</h3>
- </ng-template> 
+<ul *ngFor="let item of userDetails2">
+   <li> Name: {{item.name}}</li>
+   <li> Email: {{item.email}}</li>
+   <li> Social Accounts- </li>
+   <ul *ngFor="let acc of item.socialAccounts">
+      <li>{{acc}}</li>
+   </ul>
 
- <ng-template #elseBlock>
-   <h3>This is ELSE-condition</h3>
- </ng-template>
+</ul>
 
- <ng-template [ngIf]="color==='red'">
-   <h2 style="color: red">RED Color</h2>
- </ng-template>
- <ng-template [ngIf]="color==='blue'">
-   <h2 style="color: blue">BLUE Color</h2>
- </ng-template>
- <ng-template [ngIf]="color==='green'">
-   <h2 style="color: green">GREEN Color</h2>
- </ng-template>
- <ng-template [ngIf]="color==='yellow'">
-   <h2 style="color: yellow">YELLOW Color</h2>
- </ng-template>
+<hr>
 
+<h2>Style-Binding</h2>
 
- <div [ngSwitch]="color">
-   <h3 *ngSwitchCase="'red'" style="color: red">Color-RED</h3>
-   <h3 *ngSwitchCase="'blue'" style="color: blue">Color-BLUE</h3>
-   <h3 *ngSwitchCase="'green'" style="color: green">Color-GREEN</h3>
- </div> 
+<h3 [style.color]="color" [style.backgroundColor]="bgcolor"> Hi changing color</h3>
+<h3 [style.color]="color" [style.backgroundColor]="bgcolor"> Again & Again!!</h3>
+<button (click)="updateColor()">Change it</button>
