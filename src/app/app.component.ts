@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,16 +8,25 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'Todo-List';
-  list: any[]= [];
+  title = 'Send data Patent to Child and Reusable Component and data Child to Patent and 2-Way binding';
+  data= 20;
+  str= "Square";
 
-  addTask(item: string) {
-    this.list.push({id: this.list.length, name: item});
-    console.warn(this.list);
+  userDetails= [
+    {name: "Anubh", email:'anubh@gmail.com'},
+    {name: "Shanu", email:'shanu@gmail.com'},
+    {name: "Raja", email:'raja@gmail.com'},
+    {name: "Sonu", email:'sonu@gmail.com'},
+  ]
+
+  name: any;
+
+  updateChild() {
+    this.data= Math.floor(Math.random()*10);
   }
 
-  removeTask(id: number) {
-    console.warn(id);
-    this.list=  this.list.filter(item=>item.id!==id);
+  updateData(item: string) {
+    console.warn(item);
+    this.str= item;
   }
 }
