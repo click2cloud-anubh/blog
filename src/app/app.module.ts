@@ -7,11 +7,6 @@ import { HeaderComponent } from './header/header.component';
 import {FormsModule} from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatButtonModule} from '@angular/material/button';
-import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -22,12 +17,7 @@ import {MatBadgeModule} from '@angular/material/badge';
     BrowserModule,
     FormsModule,
     NgbModule,
-    BrowserAnimationsModule,
-    MatSliderModule,
-    MatIconModule,
-    MatDividerModule,
-    MatButtonModule,
-    MatBadgeModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
