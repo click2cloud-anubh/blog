@@ -1,50 +1,51 @@
-<h2 class="{{title}}">Anubh's Angular {{title}} with number {{number}}</h2>
-<app-user-list></app-user-list>
-<app-student-list></app-student-list>
-<app-country-list></app-country-list>
-<app-login></app-login>  <br><br>
-
-<button (click)="getData('Hello')">Click Me</button>
-<br>
-
-<input type="text" #box (keyup)="getData(box.value)" placeholder="Event Keyup">
-<br>
-<input type="text" #box1 (keydown)="getData(box.value)" placeholder="Event Keydown">
-<br>
-<input type="text" #box2 (blur)="getData(box.value)" placeholder="Event Blur">
-<br>
-<input type="text" #box3 (input)="getData(box.value)" placeholder="Event Input">
-<br>
-
-<h1 (mouseover)="getData('over')"> Code with Anubh</h1>
-<h3 (mouseleave)="getData('leave')"> AVENGERS</h3>
-
-<hr> 
+<h2 class="{{title}}">Anubh's Angular {{title}}</h2>
 
 <input type="text"
-#box
-placeholder="Enter Name"
-name="Name">
+ name="Name"
+ value="{{name}}"
+ disabled="{{disabled}}">
+<br><br>
+<input type="text"
+ name="Name" 
+ [value]=name
+ [disabled]=disabled>
 
-<button (click)="getValue(box.value)">Click</button>
+ <hr>
 
-<p>
-   Box value is- {{displayVal}}
-</p> 
+ <!--  <h3 *ngIf="show; else elseBlock">
+    Code it again and again.
+ </h3> 
 
-<hr>
+ <ng-template #elseBlock> 
+    <h3 style="color:blue">Else condition executes</h3>
+ </ng-template> -->
 
-<button class="heading" (click)="counter('subtract')">--</button> 
-<p class="heading">Count: {{count}}</p>
-<button class="heading"(click)="counter('add')">++</button>
+ <h3 *ngIf="show==='yes'; then ifBlock else elseBlock"></h3>
 
-<hr>
+ <ng-template #ifBlock>
+   <h3>This is IF-condition.</h3>
+ </ng-template> 
 
-<app-student-list></app-student-list>
+ <ng-template #elseBlock>
+   <h3>This is ELSE-condition</h3>
+ </ng-template>
 
-<style>
-   .heading{
-      color: rgb(110, 110, 110);
-   }
-</style>
-<span style="color:rgb(224, 69, 224)">Hello Span</span>
+ <ng-template [ngIf]="color==='red'">
+   <h2 style="color: red">RED Color</h2>
+ </ng-template>
+ <ng-template [ngIf]="color==='blue'">
+   <h2 style="color: blue">BLUE Color</h2>
+ </ng-template>
+ <ng-template [ngIf]="color==='green'">
+   <h2 style="color: green">GREEN Color</h2>
+ </ng-template>
+ <ng-template [ngIf]="color==='yellow'">
+   <h2 style="color: yellow">YELLOW Color</h2>
+ </ng-template>
+
+
+ <div [ngSwitch]="color">
+   <h3 *ngSwitchCase="'red'" style="color: red">Color-RED</h3>
+   <h3 *ngSwitchCase="'blue'" style="color: blue">Color-BLUE</h3>
+   <h3 *ngSwitchCase="'green'" style="color: green">Color-GREEN</h3>
+ </div> 
