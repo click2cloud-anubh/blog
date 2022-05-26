@@ -1,43 +1,54 @@
 <app-header></app-header>
 
-<h3>Anubh's Angular {{title}}</h3>
+<h2>Anubh's Angular {{title}}</h2>
+
+<!-- <h3>Template driven form</h3>
+<br>
+<form #loginForm="ngForm" (ngSubmit)=userLogin(loginForm.value)>     //loginForm.controls
+    <input type="text" placeholder="Enter Name" name="Name" ngModel>
+    <br><br>
+    <input type="password" placeholder="Enter Password" name="Password" ngModel>
+    <br><br>
+    <button>Login</button>
+</form>
+<br><br><br>
+<button (click)=userLogin(loginForm.value.Password) ngModel>Outside Password Forget</button>
+
+<hr> -->
+
+<h3>Reactive Forms</h3>
+<br>
+<!-- formGroup ERROR is due to above Template driven form -->
+<form [formGroup]="loginForm" (submit)="loginUser()">  
+    
+    <div class="form-group">
+        <input type="text" 
+        placeholder="Enter Name" 
+        name="user" 
+        formControlName="user">
+        <br>
+
+        <span style="color: red" *ngIf="user && user.invalid && user.touched">This field is not valid</span>
+        <ng-template style="color: green" #elseBlock  >This field is valid</ng-template>
+        <br><br>
+
+        <input type="password" 
+        placeholder="Enter password" 
+        name="password" 
+        formControlName="password">
+        <br>
+        
+        <span style="color: red" *ngIf="user && user.invalid && user.touched">This field is not valid</span>
+    </div>
+
+    <button type="submit" 
+    class="btn btn-dark"
+    [disabled]="loginForm.invalid">Login</button>
+</form>
 
 <hr>
 
-<h3>Template Reference Variable</h3>
-<input type="text" #box name="user" placeholder="Enter user name">
-<button (click)="getVal(box)"> Call Function </button>
+<h3>Directives</h3>
 
-<hr>
-<h3>Basic Pipes</h3>
-<h4>{{title | uppercase}} </h4>    //By Pipes
-<h4>{{ capString(title) }} </h4>   //By function
-
-
-<h4>{{title | lowercase}} </h4>
-
-<h3>{{today | date}}</h3>
-<h3>{{today | date : 'fullDate'}}</h3>
-
-
-<hr>
-<h3>Advanced Pipes</h3>
-<h4>{{title | slice: 5}} </h4>
-<h4>{{title | slice: 5 : 10}} </h4>
-<h4>{{title | slice: 5 : 10 | uppercase}} </h4> 
-
-<h3>{{user | json}}</h3>
-<h3>{{user | json | uppercase}}</h3>
-
-<h4>{{0000005060.7012 | number : '2.2-3'}}</h4>
-<h4>{{5060.7012 | number : '2.2-3'}}</h4>
-<h4>{{4.89 | number : '3.2-3'}}</h4>
-
-<h3>{{20 | currency: 'USD'}}</h3>
-<h3>{{20 | currency: 'INR'}}</h3>
-<h3>{{20 | currency: 'GBP'}}</h3>
-
-
-<hr>
-<h3>Custom Pipes</h3>
-<h4>{{20 | usdInr: 72}}</h4>
+<h4 *ngIf="true">{{title}}</h4>
+<h4 appRedEl>{{title}}</h4>
